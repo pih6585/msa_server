@@ -1,0 +1,22 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name:msaTesteureke
+  cloud:
+    gateway:
+      routes:
+        - id: first-service
+          url: http://localhost:8081/
+          predicate:
+           - Path=/first-service/**
+        - id: first-service
+          url: http://localhost:8081/
+          predicate:
+            - Path=/first-service/**
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
